@@ -17,8 +17,8 @@ describe('Store') do
   end
 
   it("tests for store name uniqueness") do
-    store = Store.create({:store_name => "a fake store"})
-    store2 = Store.new({:store_name => "a fake store"})
+    store = Store.create({:store_name => "A Fake Store"})
+    store2 = Store.new({:store_name => "A Fake Store"})
     expect(store.save()).to(eq(false))
   end
 end

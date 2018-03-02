@@ -27,8 +27,8 @@ describe('Brand') do
   end
 
   it("tests for brand name uniqueness") do
-    brand = Brand.create({:brand_name => "some shoes", :price => 50})
-    brand2 = Brand.new({:brand_name => "some shoes", :price => 25})
-    expect(brand.save).to(eq(false))
+    brand = Brand.create({:brand_name => "Some Shoes", :price => 50})
+    brand2 = Brand.new({:brand_name => "Some Shoes", :price => 50})
+    expect(brand2.save).to(eq(false))
   end
 end

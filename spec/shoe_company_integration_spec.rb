@@ -24,7 +24,7 @@ end
 
 describe 'the store update path', {:type => :feature} do
   it 'allows a user to change the name of the store' do
-    test_store = Store.create({:store_name => 'Fake Store', :id => nil})
+    test_store = Store.create({:store_name => 'A Store', :id => nil})
     id = test_store.id
     visit "/store/#{id}"
     fill_in('store_name', :with => 'Real Store')
