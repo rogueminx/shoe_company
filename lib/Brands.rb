@@ -3,7 +3,5 @@ class Brand < ActiveRecord::Base
 
   private
 
-  def normalize
-
-  end
+  
 end

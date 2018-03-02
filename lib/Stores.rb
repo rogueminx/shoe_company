@@ -3,7 +3,5 @@ class Store < ActiveRecord::Base
 
   private
 
-  def normalize
-
-  end
+  
 end
