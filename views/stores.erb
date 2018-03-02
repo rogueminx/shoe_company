@@ -1,7 +1,23 @@
 <div class="container">
   <h1>Store Management Page</h1>
-  <tr>
-    <td>form</td>
-    <td>list</td>
-  </tr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-container">
+        <form action="/stores" method="post">
+          <p><label for="store_name">Store Name</label>
+          <input id="store_name" name="store_name" type="text" class="form-control"></p>
+          <p><button type="submit" class="btn btn-info">Add Store</button></p>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <% if @stores.any?() %>
+        <h3>Here are all the stores carrying our shoes:</h3>
+        <% @stores.each do |store| %>
+        <h5><a href="/store/<%= store.id()%>"><%= store.store_name %></a></h5>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

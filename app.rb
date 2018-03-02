@@ -14,9 +14,33 @@ get('/') do
 end
 
 get('/brands') do
-  erb:stores
+  @brands = Brand.all
+  erb:brands
 end
 
 get('/stores') do
+  @stores = Store.all
+  erb:stores
+end
+
+get('/store/:id') do
+  @store = Store.find(params.fetch("id"))
+  erb:storeinfo
+end
+
+get('/brand/:id') do
+  @brand = Brand.find(params.fetch("id"))
+  erb:brandinfo
+end
+
+post('/stores') do
+  store = Store.create({:store_name => params.fetch("store_name"), :id => nil})
+  @stores = Store.all
+  erb:stores
+end
+
+post('/brands') do
+  brand = Brand.create({:brand_name => params.fetch("brand_name"), :price => params.fetch("price"), :id => nil})
+  @brands = Brand.all
   erb:brands
 end

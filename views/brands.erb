@@ -1,7 +1,25 @@
 <div class="container">
   <h1>Brand Management Page</h1>
-  <tr>
-    <td>form</td>
-    <td>list</td>
-  </tr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-container">
+        <form action="/brands" method="post">
+          <p><label for="brand_name">Shoe Name</label>
+          <input id="brand_name" name="brand_name" type="text" class="form-control"></p>
+          <p><label for="price">Shoe Price</label>
+          <input id="price" name="price" type="text" class="form-control"></p>
+          <p><button type="submit" class="btn btn-info">Add Brand</button></p>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <% if @brands.any?() %>
+        <h3>Here are all the brands carrying our shoes:</h3>
+        <% @brands.each do |brand| %>
+        <h5><a href="/brand/<%= brand.id()%>"><%= brand.brand_name %></a></h5>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
