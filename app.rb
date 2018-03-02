@@ -37,12 +37,18 @@ end
 
 post('/stores') do
   store = Store.create({:store_name => params['store_name'], :id => nil})
+  if !store.save()
+    @error_message = "Make sure the store name is unique and under 100 characters long."
+  end
   @stores = Store.all
   erb:stores
 end
 
 post('/brands') do
   brand = Brand.create({:brand_name => params['brand_name'], :price => params['price'], :id => nil})
+  if !brand.save()
+    @error_message = "Make sure the store name is unique and under 100 characters long, and price is present."
+  end
   @brands = Brand.all
   erb:brands
 end

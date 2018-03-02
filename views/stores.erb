@@ -10,6 +10,9 @@
           <p><button type="submit" class="btn btn-info">Add Store</button></p>
         </form>
       </div>
+      <% if @error_message %>
+      <p><%= @error_message %></p>
+      <% end %>
     </div>
     <div class="col-md-6">
       <% if @stores.any?() %>
