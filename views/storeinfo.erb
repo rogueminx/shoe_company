@@ -1,1 +1,28 @@
-<h1><%= @store.store_name %></h1>
+<div class="container">
+  <h1><%= @store.store_name %></h1>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-container">
+        Inventory List
+      </div>
+    </div>
+    <div class="col-md-4">
+      Add shoe brand
+    </div>
+    <div class="col-md-4">
+      <h3>Manage Store</h3>
+        <form action="/store/<%= @store.id() %>" method="post" class="form-container">
+        <input name="_method" type="hidden" value="patch">
+        <label for="store_name">Edit Store Name:</label>
+          <input id="store_name" name="store_name" type="text" class="form-control">
+          <br>
+          <button type="submit" class="btn btn-info">Update Name</button>
+        </form>
+      <hr>
+      <form action="/store/<%= @store.id() %>" method="post" id="delete">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn btn-danger">Delete this Store</button>
+      </form>
+    </div>
+  </div>
+</div>
