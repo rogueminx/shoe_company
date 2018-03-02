@@ -25,6 +25,8 @@ end
 
 get('/store/:id') do
   @store = Store.find(params['id'])
+  @brands = Brand.all
+  @storebrands = @store.brands
   erb:storeinfo
 end
 
@@ -45,9 +47,20 @@ post('/brands') do
   erb:brands
 end
 
+post("/store/:id/brand") do
+  brand = Brand.find(params['brand_id'])
+  @store = Store.find(params['id'])
+  @store.brands.push(brand)
+  @storebrands = @store.brands
+  @brands = Brand.all
+  erb:storeinfo
+end
+
 patch('/store/:id') do
   @store = Store.find(params['id'])
   @store.update({:store_name => params['store_name']})
+  @storebrands = @store.brands
+  @brands = Brand.all
   erb:storeinfo
 end
 

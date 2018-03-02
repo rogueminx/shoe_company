@@ -3,11 +3,28 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-container">
-        Inventory List
+        <% if @storebrands.any?() %>
+          <h3>Current Brands</h3>
+          <% @storebrands.each do |brand| %>
+              <h4><%= brand.brand_name %></a></h4>
+          <% end %>
+          <% else %>
+          There are no brands in this store at the moment.
+        <% end %>
       </div>
     </div>
     <div class="col-md-4">
-      Add shoe brand
+      <p>Select a shoe brand from the list to add to the store.</p>
+      <form action="/store/<%= @store.id %>/brand" method="post" class="form-container">
+        <p><select id="brand_id" name="brand_id">
+          <% @brands.each do |brand| %>
+            <% unless @storebrands.include?(brand) %>
+              <option value="<%=brand.id%>"><%= brand.brand_name %></option>
+          <% end %>
+        <% end %>
+        </select></p>
+        <p><button type="submit" class="btn btn-info">Add brand</button></p>
+      </form>
     </div>
     <div class="col-md-4">
       <h3>Manage Store</h3>
