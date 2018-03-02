@@ -15,10 +15,10 @@ end
 describe 'the brand creation path', {:type => :feature} do
   it 'takes the user to the brand page where they can create a brand' do
     visit '/brands'
-    fill_in('brand_name', :with => 'High heels')
+    fill_in('brand_name', :with => 'High Heels')
     fill_in('price', :with => '50.00')
     click_button('Add Brand')
-    expect(page).to have_content('High heels')
+    expect(page).to have_content('High Heels')
   end
 end
 
