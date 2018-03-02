@@ -4,14 +4,10 @@ require('sinatra/activerecord')
 also_reload('lib/**/*.rb')
 require('pry')
 require('pg')
-require('Brands')
-require('Stores')
+require('brands')
+require('stores')
 
 
 get('/') do
-  erb:index
-end
-
-post('/') do
   erb:index
 end

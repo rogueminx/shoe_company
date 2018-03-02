@@ -1,0 +1,9 @@
+2018-03-02 08:51:26.101 PST [3093] LOG:  listening on IPv6 address "::1", port 5432
+2018-03-02 08:51:26.169 PST [3093] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-03-02 08:51:26.444 PST [3093] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-03-02 08:51:26.638 PST [3094] LOG:  database system was shut down at 2018-03-02 08:51:00 PST
+2018-03-02 08:51:26.788 PST [3093] LOG:  database system is ready to accept connections
+2018-03-02 08:51:34.819 PST [3103] FATAL:  database "annamariecooper" does not exist
+2018-03-02 08:52:08.028 PST [3107] FATAL:  database "shoe_company_development" does not exist
+2018-03-02 08:55:18.364 PST [4869] FATAL:  database "shoe_company_development" does not exist
+2018-03-02 08:55:37.280 PST [4871] FATAL:  database "annamariecooper" does not exist

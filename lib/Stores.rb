@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-class Stores < ActiveRecord::Base
+class Store < ActiveRecord::Base
 end

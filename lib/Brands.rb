@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-class Brands < ActiveRecord::Base
+class Brand < ActiveRecord::Base
 end
