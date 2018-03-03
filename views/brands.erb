@@ -4,6 +4,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-container">
+        <h3>Add Brand</h3>
+        <hr>
         <form action="/brands" method="post">
           <p><label for="brand_name">Shoe Name</label>
           <input id="brand_name" name="brand_name" type="text" class="form-control"></p>
@@ -18,7 +20,8 @@
     </div>
     <div class="col-md-6">
       <% if @brands.any?() %>
-        <h3>Here are all the brands carrying our shoes:</h3>
+        <h3>Current Brands</h3>
+        <hr>
         <% @brands.each do |brand| %>
         <h5><a href="/brand/<%= brand.id()%>"><%= brand.brand_name %></a></h5>
         <% end %>

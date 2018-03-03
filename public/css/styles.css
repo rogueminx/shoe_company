@@ -8,8 +8,12 @@
 }
 
 h1 {
-  font-family: 'Krona One';
+  font-family: 'Anton';
   text-align: center;
   font-size: 50px;
   margin: 0 auto;
+}
+
+h3 {
+  font-family: 'Anton';
 }
