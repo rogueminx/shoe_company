@@ -1,0 +1,15 @@
+.container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.intropic {
+  width: 300px;
+}
+
+h1 {
+  font-family: 'Krona One';
+  text-align: center;
+  font-size: 50px;
+  margin: 0 auto;
+}

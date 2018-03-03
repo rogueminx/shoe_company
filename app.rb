@@ -64,7 +64,10 @@ end
 
 patch('/store/:id') do
   @store = Store.find(params['id'])
-  @store.update({:store_name => params['store_name']})
+  if (@store.update({:store_name => params['store_name']}) == false)
+    @error_message = "Make sure the store name is unique and under 100 characters long."
+  else
+  end
   @storebrands = @store.brands
   @brands = Brand.all
   erb:storeinfo
