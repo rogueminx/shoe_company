@@ -75,6 +75,18 @@ patch('/store/:id') do
   erb:storeinfo
 end
 
+patch('/brand/:id') do
+  @brand = Brand.find(params['id'])
+  if (@brand.update({:brand_name => params['brand_name']}) == false)
+    @error_message = "Make sure the store name is unique and under 100 characters long."
+  else
+    @brand.update({:brand_name => params['brand_name']})
+  end
+  @price = '%.2f' % @brand.price
+  @storebrands = @brand.stores
+  erb:brandinfo
+end
+
 delete('/store/:id') do
   store = Store.find(params['id'])
   store.delete
