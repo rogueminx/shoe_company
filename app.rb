@@ -32,6 +32,8 @@ end
 
 get('/brand/:id') do
   @brand = Brand.find(params['id'])
+  @price = '%.2f' % @brand.price
+  @storebrands = @brand.stores
   erb:brandinfo
 end
 
@@ -78,4 +80,11 @@ delete('/store/:id') do
   store.delete
   @stores = Store.all
   erb:stores
+end
+
+delete('/brand/:id') do
+  brand = Brand.find(params['id'])
+  brand.delete
+  @brands = Brand.all
+  erb:brands
 end

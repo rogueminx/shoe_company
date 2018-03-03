@@ -1,2 +1,39 @@
-<h1><%= @brand.brand_name %></h1>
-<h1><%= @brand.price %></h1>
+<div class="container">
+  <h1><%= @brand.brand_name %> - <%= @price %></h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-container">
+        <h3>Current Stores</h3>
+        <hr>
+        <% if @storebrands.any?() %>
+          <p>A list of stores that currently carry this brand:</p>
+          <hr>
+          <% @storebrands.each do |store| %>
+              <h4><%= store.store_name %></a></h4>
+          <% end %>
+          <% else %>
+          There are stores carrying this brand at the moment.
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Manage Brand</h3>
+      <hr>
+        <form action="/brand/<%= @brand.id() %>" method="post" class="form-container">
+        <input name="_method" type="hidden" value="patch">
+        <label for="brand_name">Edit Brand Name:</label>
+          <input id="brand_name" name="brand_name" type="text" class="form-control">
+          <br>
+          <button type="submit" class="btn btn-info">Update Name</button>
+        </form>
+        <% if @error_message %>
+        <p><%= @error_message %></p>
+        <% end %>
+      <hr>
+      <form action="/brand/<%= @brand.id() %>" method="post" id="delete">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit" class="btn btn-danger">Delete this Brand</button>
+      </form>
+    </div>
+  </div>
+</div>
